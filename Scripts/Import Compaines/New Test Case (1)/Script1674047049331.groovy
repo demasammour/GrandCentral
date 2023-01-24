@@ -17,13 +17,8 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 
-WebUI.callTestCase(findTestCase('Login/Test Case 001 - Login'), [:], FailureHandling.CONTINUE_ON_FAILURE)
-
-WebUI.click(findTestObject('Main Menu/Contacts main menu'))
-
-WebUI.click(findTestObject('Main Menu/Import companies'))
-
-String file = CustomKeywords.'com.kms.katalon.keyword.excel.ExcelKeywords.getCellByIndex'('new', 4, 8)
-
+WebUI.openBrowser('')
+WebUI.navigateToUrl('http://demoaut.katalon.com/')
+String result = WebUI.getText(findTestObject('Object Repository/Page_CURA Healthcare Service/a_Make Appointment'))
+CustomKeywords.'myPack.WriteExcel.demoKey'(result)
 WebUI.closeBrowser()
-
